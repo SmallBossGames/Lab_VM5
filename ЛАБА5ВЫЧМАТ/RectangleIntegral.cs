@@ -9,21 +9,20 @@ namespace ЛАБА5ВЫЧМАТ
 {
     public class RectangleIntegral
     {
-        static decimal GetRectangleScale(decimal x1, decimal x2, Program.MyFunction f) 
-            => f((x2 + x1) / 2.0m) * (x2 - x1);
-
         static decimal Integrate(decimal down, decimal up, int count, Program.MyFunction f)
         {
             count *= 2;
             var step = (up - down) / (count);
-            var sum = f(down) + f(up);
+            var sum = 0m;
 
-            for (var i = 1; i <= count - 1; i++)
+            for (var i = 0; i <= count - 1; i++)
             {
-                var value = f(down + step * i);
-                sum += 2 * value;
+                var x1 = down + step * i;
+                var x2 = down + step * (i + 1);
+                var value = f((x2 + x1) / 2) * (x2 - x1);
+                sum += value;
             }
-            return (step / 2.0m) * sum;
+            return sum;
         }
 
         static decimal Abs(decimal val)
