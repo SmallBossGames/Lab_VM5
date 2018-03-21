@@ -14,12 +14,16 @@ namespace ЛАБА5ВЫЧМАТ
 
         static decimal Integrate(decimal down, decimal up, int count, Program.MyFunction f)
         {
-            var step = (up - down) / count;
-            var sum = 0.0m;
+            count *= 2;
+            var step = (up - down) / (count);
+            var sum = f(down) + f(up);
 
-            for (var i = 0; i < count; i++)
-                sum += GetRectangleScale(down + step * i, down + step * (i + 1), f);
-            return sum;
+            for (var i = 1; i <= count - 1; i++)
+            {
+                var value = f(down + step * i);
+                sum += 2 * value;
+            }
+            return (step / 2.0m) * sum;
         }
 
         static decimal Abs(decimal val)
