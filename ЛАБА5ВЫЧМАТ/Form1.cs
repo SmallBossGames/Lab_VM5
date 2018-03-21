@@ -12,9 +12,9 @@ namespace ЛАБА5ВЫЧМАТ
 {
     public partial class Form1 : Form
     {
-        double From => double.Parse(fromTextBox.Text);
-        double To => double.Parse(toTextBox.Text);
-        double Accuracy => double.Parse(accuracyTextBox.Text);
+        decimal From => decimal.Parse(fromTextBox.Text);
+        decimal To => decimal.Parse(toTextBox.Text);
+        decimal Accuracy => decimal.Parse(accuracyTextBox.Text);
 
         public Form1()
         {

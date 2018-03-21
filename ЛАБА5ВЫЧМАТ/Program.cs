@@ -9,9 +9,9 @@ namespace ЛАБА5ВЫЧМАТ
     public static class Program
     { 
 
-        public delegate double MyFunction(double x);
+        public delegate decimal MyFunction(decimal x);
 
-        public static double F(double x) => (1.0 + x) * (1.0 + x) / (x * x * x * Math.Sqrt(2.0 + x));
+        public static decimal F(decimal x) => (1.0m + x) * (1.0m + x) / (x * x * x * (decimal)Math.Sqrt((double)(2.0m + x)));
 
         /// <summary>
         /// Главная точка входа для приложения.
