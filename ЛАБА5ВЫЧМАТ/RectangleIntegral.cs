@@ -11,7 +11,6 @@ namespace ЛАБА5ВЫЧМАТ
     {
         static decimal Integrate(decimal down, decimal up, int count, Program.MyFunction f)
         {
-            count *= 2;
             var step = (up - down) / (count);
             var sum = 0m;
 
